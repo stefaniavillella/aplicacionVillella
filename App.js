@@ -1,33 +1,22 @@
 
 import { StyleSheet, View } from "react-native";
-import Header from "./components/Header";
-import StartGameScreen from "./screens/StartGameScreen";
 import colors from "./constants/colors";
-import { useState } from "react";
-import GameScreen from "./screens/GameScreen";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
-
+import ShopNavigator from "./src/navigation/ShopNavigator";
 
 export default function App() {
-  const [userNumber, setUserNumber] = useState();
+
+  const [loaded] = useFonts({
+    Roboto1: require('./assets/fonts/Roboto-Medium.ttf'),
+  });
+
+  console.log(loaded);
+  if (!loaded) {
+    return null;
+  };
   
 
-  const handleStartGame = (selectedNumber) => {
-    setUserNumber(selectedNumber)
-  }
-
-  let content = <StartGameScreen onStartGame={handleStartGame} />
-  if (userNumber) {
-    content = <GameScreen />
-  }
-
-  return (
-    <View style={styles.container}>
-      <Header title={"Adivina numerador"} />
-      {content}
-    </View>
-  );
+  return <ShopNavigator />
   
 }
 
