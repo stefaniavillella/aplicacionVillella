@@ -1,21 +1,13 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { PRODUCTS } from '../data/products'
 
-const Details = ({navigation}) => {
+const Details = ({}) => {
+  const product = PRODUCTS;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Detalle de producto</Text>
-      <Button 
-        //style={{marginBottom: 10}}
-        color="#C1666B"
-        title="Volver a categorías"
-        onPress={() => navigation.navigate("Categorias")}
-      />
-      <Button 
-        color="#C1666B"
-        title="Volver a Producto"
-        onPress={() => navigation.navigate("Productos")}
-      />
+      <Text style={styles.title}>{product.name}</Text>
+      
     </View>
   )
 }
@@ -25,7 +17,7 @@ export default Details
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D4B483",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },

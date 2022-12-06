@@ -1,14 +1,31 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
+import GridItem from "../components/GridItem";
+import {CATEGORIES} from "../data/categories"
 
-const Categorias = ({navigation}) => {
+const Categorias = ({ navigation }) => {
+  const handleSelectedCategory = (item) => {
+    navigation.navigate("Productos", {
+      categoryID: item.id,
+      name: item.title,
+    });
+  };
+
+  const renderGridItem = ({ item }) => (
+    <GridItem item={item} onSelected={handleSelectedCategory} />
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Categorías de Productos</Text>
-      <Button color="#48A9A6" title="Cumpleaños" onPress={() => navigation.navigate("Productos")} />
-    </View>
+    <FlatList
+      data={CATEGORIES}
+      keyExtractor={(item) => item.id}
+      renderItem={renderGridItem}
+      
+    />
   );
 };
+
+
 
 export default Categorias;
 

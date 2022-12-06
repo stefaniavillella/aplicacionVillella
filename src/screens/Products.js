@@ -1,16 +1,32 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, FlatList } from "react-native";
 import React from "react";
+import KitItem from "../components/KitItem";
+import { PRODUCTS } from "../data/products";
 
-const Producto = ({ navigation }) => {
+const Producto = ({ navigation, route }) => {
+
+const kits = PRODUCTS.filter(item => item.category === route.params.categoryID)
+
+  
+  const handleSelectedCategory = (item) => {
+
+    navigation.navigate("Detalles", {
+      productID: item.id,
+      name: item.name,
+    });
+  };
+
+  const renderKitItem = ({ item }) => (
+    <KitItem item={item} onSelected={handleSelectedCategory} />
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Kits de Cumpleaños</Text>
-      <Button 
-        color="#D4B483"
-        title="Ver detalle"
-        onPress={() => navigation.navigate("Detalles")}
-      />
-    </View>
+    <FlatList
+      data={kits}
+      keyExtractor={(item) => item.id}
+      renderItem={renderKitItem}
+      
+    />
   );
 };
 
@@ -19,7 +35,7 @@ export default Producto;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#48A9A6",
+    backgroundColor: "#C79AD8",
     alignItems: "center",
     justifyContent: "center",
   },

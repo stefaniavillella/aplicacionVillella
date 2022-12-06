@@ -1,5 +1,5 @@
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Categories from "../screens/Categories";
 import Products from "../screens/Products";
@@ -10,12 +10,22 @@ const Stack = createNativeStackNavigator();
 
 export default ShopNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Categorias" component={Categories} />
-        <Stack.Screen name="Productos" component={Products} />
-        <Stack.Screen name="Detalles" component={Details} />
+    
+      <Stack.Navigator initialRouteName="Categorias" screenOptions={{
+        headerStyle: { backgroundColor: "#74D1CC"}
+      }}>
+        <Stack.Screen name="Categorias" component={Categories} options={{
+          title: "Home"
+        }} />
+        <Stack.Screen name="Productos" component={Products}
+          options={({ route }) => ({
+            title: route.params.name,
+        })} />
+        <Stack.Screen name="Detalles" component={Details}
+        options={({ route }) => ({
+          title: route.params.name,
+        })} />
       </Stack.Navigator>
-    </NavigationContainer>
+    
   );
 };
