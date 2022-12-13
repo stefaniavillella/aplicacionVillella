@@ -2,6 +2,8 @@ import { StyleSheet, View } from "react-native";
 import colors from "./constants/colors";
 import { useFonts } from "expo-font";
 import BottomTabNavigator from "./src/navigation/BottomTabNavigator";
+import { Provider } from "react-redux";
+import store from "./src/store"
 
 export default function App() {
 
@@ -15,7 +17,11 @@ export default function App() {
   };
   
 
-  return <BottomTabNavigator />
+  return (
+    <Provider store={store}>
+      <BottomTabNavigator />
+    </Provider>
+  )
   
 }
 

@@ -2,7 +2,12 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { PRODUCTS } from '../data/products'
 
+import { useSelector } from 'react-redux'
+
 const Details = ({}) => {
+
+  const kit = useSelector((state) => state.product.selected)
+
   const product = PRODUCTS;
   return (
     <View style={styles.container}>

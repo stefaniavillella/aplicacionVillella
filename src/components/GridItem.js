@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     borderRadius: 6,
-    margin: 15,
+    margin: 9,
+    width: 394,
     height: 150,
   },
   container: {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 3,
     justifyContent: "flex-end",
-    alignItems: "flex-end",
+    alignItems: "center",
     padding: 8,
   },
   title: {

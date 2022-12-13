@@ -1,20 +1,29 @@
 import { StyleSheet, Text, View, Button, FlatList } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import KitItem from "../components/KitItem";
-import { PRODUCTS } from "../data/products";
+
+import { useSelector, useDispatch, connect } from "react-redux";
+import { filteredProduct, selectedProduct } from "../store/actions/product.action";
 
 const Producto = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const productos = useSelector ((state)=> state.product.filteredProduct);
+  const category = useSelector ((state)=> state.categories.selected);
 
-const kits = PRODUCTS.filter(item => item.category === route.params.categoryID)
+  useEffect(()=> {
+   dispatch(filteredProduct(category.id))
+  }, [])
 
-  
   const handleSelectedCategory = (item) => {
-
+    dispatch(selectedProduct(item.id))
     navigation.navigate("Detalles", {
-      productID: item.id,
       name: item.name,
     });
   };
+
+
+
+  
 
   const renderKitItem = ({ item }) => (
     <KitItem item={item} onSelected={handleSelectedCategory} />
@@ -22,7 +31,7 @@ const kits = PRODUCTS.filter(item => item.category === route.params.categoryID)
 
   return (
     <FlatList
-      data={kits}
+      data={productos}
       keyExtractor={(item) => item.id}
       renderItem={renderKitItem}
       
@@ -30,7 +39,12 @@ const kits = PRODUCTS.filter(item => item.category === route.params.categoryID)
   );
 };
 
-export default Producto;
+export default connect()(Producto);
+
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
