@@ -1,18 +1,29 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { PRODUCTS } from '../data/products'
+import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../store/actions/cart.action';
 
-import { useSelector } from 'react-redux'
 
-const Details = ({}) => {
 
-  const kit = useSelector((state) => state.product.selected)
+const Details = () => {
+  const dispatch = useDispatch();
+  const kit = useSelector((state) => state.product.selected);
 
-  const product = PRODUCTS;
+  const handleAddItemCart = () => {
+        dispatch (addItem(kit))
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{product.name}</Text>
       
+      <View style={styles.screen}>
+      <Text style={styles.title}>{kit.name}</Text>
+      <Text>${kit.price}</Text>
+      <View style={styles.button}>
+      <Button title='Agregar al carrito' onPress={handleAddItemCart} />
+      </View>
+      </View>
+  
     </View>
   )
 }
@@ -22,11 +33,27 @@ export default Details
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
+    fontSize: 25,
     fontFamily: "Roboto1",
+  },
+  screen: {
+    flex: 0.9,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  description: {
+    fontSize: 18,
+  },
+  price: {
+    fontSize: 30,
+  },
+  button: {
+    marginTop: 15,
   },
 })
