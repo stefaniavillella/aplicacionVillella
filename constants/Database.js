@@ -1,1 +1,2 @@
 export const URL_API = "https://aplicacionstefivillella-default-rtdb.firebaseio.com/";
+export const URL_AUTH_SIGNUP = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAjH-FZe9Imap_Nn3tQ1oZ3mzI26zwmiUg";
