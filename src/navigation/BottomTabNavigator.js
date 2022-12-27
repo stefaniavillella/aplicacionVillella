@@ -4,6 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
 import OrderNavigator from "./OrderNavigator";
+import PlaceNavigator from "./PlaceNavigator";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -51,6 +52,19 @@ export default BottomTabNavigator = () => {
               <View style={styles.item}>
                 <Ionicons name="list" size={20} color='black'/>
                 <Text>Órdenes</Text>
+              </View>
+            ),
+          }}
+        />
+
+<BottomTabs.Screen
+          name="PlaceTab"
+          component={PlaceNavigator}
+          options={{
+            tabBarIcon: ({ focus }) => (
+              <View style={styles.item}>
+                <Ionicons name="image" size={20} color='black'/>
+                <Text>Álbum</Text>
               </View>
             ),
           }}
