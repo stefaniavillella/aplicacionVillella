@@ -60,7 +60,7 @@ const LocationSelector = ({ onLocation, mapLocation }) => {
   return (
     <View style={styles.container}>
       <MapPreview location={pickedLocation} style={styles.preview}>
-        <Text> Location en proceso...</Text>
+        <Text> Locación en proceso...</Text>
       </MapPreview>
       <View style={styles.actions}>
         <Button
