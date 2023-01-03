@@ -1,5 +1,5 @@
-import { ADD_PLACE } from "./places.actions";
-import Place from "../models/Place";
+import { ADD_PLACE } from "../actions/places.actions";
+import Place from "../../models/place";
 
 const initialState = {
   places: [],

@@ -6,7 +6,7 @@ import MapPreview from "../components/MapPreview";
 const PlaceDetailScreen = ({ route }) => {
   const { placeId } = route.params;
   const place = useSelector((state) =>
-    state.places.places.find((item) => item.id === placeId)
+    state.places.find((item) => item.id === placeId)
   );
 
   useEffect(() => {
