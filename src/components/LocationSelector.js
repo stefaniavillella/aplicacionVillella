@@ -64,8 +64,8 @@ const LocationSelector = ({ onLocation, mapLocation }) => {
       </MapPreview>
       <View style={styles.actions}>
         <Button
-          title="Obtain Location"
-          color="#74D1CC"
+          title="Obtener Locacion"
+          color="#7591CC"
           onPress={handleGetLocation}
         />
         <Button

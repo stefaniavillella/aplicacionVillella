@@ -27,7 +27,7 @@ const PlaceDetailScreen = ({ route }) => {
           style={styles.map}
           location={{ lat: place.lat, lng: place.lng }}
         >
-          <Text>Ubicacion no disponible</Text>
+          <Text>Ubicación no disponible</Text>
         </MapPreview>
       </View>
     </ScrollView>

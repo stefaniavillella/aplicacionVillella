@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import PlaceItem from "../components/PlaceItem";
 
 const PlaceListScreen = ({ navigation }) => {
-const places = useSelector((state) => state.places);
+const places = useSelector((state) => state.places.places);
 
  useEffect(() => {
  console.log(places);
@@ -21,7 +21,7 @@ const places = useSelector((state) => state.places);
 
   return (
     <FlatList
-      data={[]}
+      data={places}
       keyExtractor={(item) => item.id}
       renderItem={renderItem}
     />

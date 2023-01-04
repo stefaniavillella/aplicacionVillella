@@ -4,8 +4,8 @@ import MapView, { Marker } from "react-native-maps";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const initialRegion = {
-  latittude: -58.48952735259595,
-  longitude: -34.62255112718561,
+  latittude: 37.78825,
+  longitude: -122.4324,
 };
 
 const MapScreen = ({ navigation }) => {
@@ -21,8 +21,8 @@ const MapScreen = ({ navigation }) => {
   const handleSaveLocation = () => {
     navigation.navigate("Nuevo", {
       mapLocation: {
-        lat: 0.06587304174900055,
-        lng: 52.24742074398264,
+        lat: 37.78825,
+        lng: -122.4324,
       },
     });
   };

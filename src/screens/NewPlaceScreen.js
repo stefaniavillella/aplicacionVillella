@@ -23,6 +23,10 @@ const NewPlaceScreen = ({ navigation, route }) => {
     console.log(route, "Nueva Direccion");
   }, [route]);
 
+  useEffect(() => {
+    console.log(image)
+  })
+
   const handleTitleChange = (text) => setTitle(text);
 
   const handleSave = () => {
@@ -45,7 +49,7 @@ const NewPlaceScreen = ({ navigation, route }) => {
           mapLocation={route?.params?.mapLocation}
         />
         <Button
-          title="Grabar direccion"
+          title="Grabar dirección"
           color= "#74D1CC"
           onPress={handleSave}
         />
