@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
-const KitItem = ({ item, onSelected }) => {
+const KitItem = ({ item, image, onSelected }) => {
+
   return (
     <TouchableOpacity onPress={() => onSelected(item)}>
       <View style={styles.kitItem}>
-        <View>
-          <Text style={styles.title}>{item.name}</Text>
+      <View>
+      <Image style={styles.image} source={{ uri: image }} />
         </View>
         <View>
+          <Text style={styles.title}>{item.name}</Text>
           <Text style={styles.details}>{item.description}</Text>
           <Text style={styles.details}>${item.price}</Text>
         </View>
@@ -16,6 +18,7 @@ const KitItem = ({ item, onSelected }) => {
     </TouchableOpacity>
   );
 };
+
 
 export default KitItem;
 
@@ -32,5 +35,17 @@ const styles = StyleSheet.create({
   },
   details: {
     fontSize: 18,
+  },
+  ImageContainer: {
+    backgroundColor: "#E0D2CD",
+    borderRadius: 10,
+    height: 100,
+    width: 100,
+  },
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 35,
+  
   },
 });

@@ -1,7 +1,8 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../store/actions/cart.action';
+
 
 
 
@@ -17,6 +18,7 @@ const Details = () => {
     <View style={styles.container}>
       
       <View style={styles.screen}>
+        <Image style={{ width: 300, height: 300, marginBottom: 15 }} source={{ uri: kit.image }} ></Image>
       <Text style={styles.title}>{kit.name}</Text>
       <Text>${kit.price}</Text>
       <View style={styles.button}>

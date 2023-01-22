@@ -1,3 +1,5 @@
+
+
 export const PRODUCTS = [
     {
       id: "1",
@@ -5,6 +7,7 @@ export const PRODUCTS = [
       name: "Kit sirenitas",
       description: "25 imprimibles",
       price: 500,
+      image: require("../../assets/sirenitas.jpg"),
     },
 
     {
@@ -13,6 +16,7 @@ export const PRODUCTS = [
         name: "Kit unicornios",
         description: "35 imprimibles",
         price: 400,
+        image: require("../../assets/unicornios.jpg"),
       },
 
       {
@@ -21,6 +25,7 @@ export const PRODUCTS = [
         name: "Kit romántico",
         description: "10 imprimibles",
         price: 550,
+        image: require("../../assets/romantico.jpg"),
       },
 
       {
@@ -29,6 +34,7 @@ export const PRODUCTS = [
         name: "Kit rosas deco",
         description: "25 imprimibles",
         price: 600,
+        image: require("../../assets/rosas-deco.jpg"),
       },
 
       {
@@ -37,6 +43,7 @@ export const PRODUCTS = [
         name: "Kit Cruz dorada",
         description: "12 imprimibles",
         price: 350,
+        image: require("../../assets/cruz-dorada.jpg"),
       },
 
       {
@@ -45,6 +52,7 @@ export const PRODUCTS = [
         name: "Kit Cruz celeste",
         description: "12 imprimibles",
         price: 350,
+        image: require("../../assets/cruz-celeste.jpg"),
       },
 
       {
@@ -53,6 +61,7 @@ export const PRODUCTS = [
         name: "Kit dia de la madre",
         description: "15 imprimibles",
         price: 450,
+        image: require("../../assets/madre.jpg"),
       },
 
       {
@@ -61,5 +70,15 @@ export const PRODUCTS = [
         name: "Kit dia del padre",
         description: "15 imprimibles",
         price: 450,
+        image: require("../../assets/padre.jpg"),
+      },
+
+      {
+        id: "9",
+        category: "1",
+        name: "Kit Caramelos",
+        description: "20 imprimibles",
+        price: 350,
+        image: "https://firebasestorage.googleapis.com/v0/b/aplicacionstefivillella.appspot.com/o/caramelos.png?alt=media&token=8a5b96e4-c49e-4db6-906d-80ac6235aea3",
       },
 ]
